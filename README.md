@@ -64,6 +64,9 @@
 
 ## 재화관리
 
+<span style="color:red">
+빨강
+</span>
 <span style="color:#008000">재화관리 내용 보기</span>
 <details>
 <summary>
