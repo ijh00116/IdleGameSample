@@ -2,7 +2,7 @@
 - Valkirie 키우기 포트폴리오 입니다(해당 프로젝트는 스크립트만 존재하여 플레이 진행이 되지 않습니다.)
 - 방치형게임의 핵심 로직내용과 플레이팹(Playfab)연동 코드가 첨부되어 있습니다.
 - 현재 출시되어 있으며 출시 직전까지 개발을 혼자 맡아 하였습니다. 총 개발인원 4명(아트디자이너1명,기획자1명,애니메이터1명,개발자1명(본인))
-- [발키리 소녀 키우기](https://play.google.com/store/apps/details?id=com.HighSpirit.KnightRush)해당 링크에서 게임을 다운받아 즐겨보실수 있습니다.
+- [발키리 소녀 키우기](https://play.google.com/store/apps/details?id=com.HighSpirit.KnightRush):해당 링크에서 게임을 다운받아 즐겨보실수 있습니다.
 
 ## Index
 
