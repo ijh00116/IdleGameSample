@@ -140,13 +140,29 @@
       ...
         public long GetMissionValue(MissionType _MissionType)
         {
-            var t = this.GetType();
-          ...
+           var t = this.GetType();
+            var field = t.GetProperty(_MissionType.ToString());
+            if (null == field) return -1;
+
+            object o = field.GetValue(this);
+            if (null == o) return -1;
+
             return (long)o;
         }
         public long SetMissionValue(MissionType _MissionType, int _IncValue)
         {
-           
+              var t = this.GetType();
+            var field = t.GetProperty(_MissionType.ToString());
+            if (null == field) return -1;
+
+            object o = field.GetValue(this);
+            if (null == o) return -1;
+
+            long curval = (long)o;
+            curval = _IncValue;
+
+            field.SetValue(this, _IncValue);
+
             return curval;
         }
 
@@ -178,6 +194,23 @@ public class Data_Mission
 
            ...
         }
+        public void SetMissionValue(MissionType _type, int value,bool sendmsg)
+        {
+            _playingRecord.SetMissionValue(_type, value);
+            missionUpdater.missiontype = _type;
+            if (CurrentGuideMission.baseInfo.m_type == _type)
+            {
+                CurrentGuideMission.curCount = value;
+            }
+            DailyMission _dmission = dailyMission.Find(o => o.baseInfo.m_type == _type);
+            if (_dmission != null)
+                _dmission.curCount = value;
+            RepeatMission _rmission = repeatMissions.Find(o => o.baseInfo.m_type == _type);
+            if (_rmission != null)
+                _rmission.curCount = value;
+
+        }
+    ...
 }
 ```
 
