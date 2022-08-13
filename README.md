@@ -122,7 +122,7 @@
 
 ## 미션관리
 - 미션은 반복,일일,가이드 미션으로 구성되며 테이블에서 토탈데이터를 가져오고 유저의 정보를 세이브,로드 하는 방식입니다.
-- 유저의 특정 기록을 이벤트로 기록하여 담아두고([playingrecord](-playingRecord.cs)) 미션데이터와 연동하여 관리됩니다.
+- 유저의 특정 기록을 이벤트로 기록하여 담아두고([playingrecord](playingRecord.cs)) 미션데이터와 연동하여 관리됩니다.
 
 <details>
 <summary>
@@ -159,6 +159,7 @@
 ...
 public class Data_Mission
 {
+    ...
          public void IncMissionValue(MissionType _type, int value)
         {
             _playingRecord.IncMissionValue(_type, value);
