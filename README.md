@@ -121,6 +121,66 @@
 </details>
 
 ## 미션관리
+- 미션은 반복,일일,가이드 미션으로 구성되며 테이블에서 토탈데이터를 가져오고 유저의 정보를 세이브,로드 하는 방식입니다.
+- 유저의 특정 기록을 이벤트로 기록하여 담아두고([playingrecord](-playingRecord.cs)) 미션데이터와 연동하여 관리됩니다.
+
+<details>
+<summary>
+    미션관리 내용 보기
+</summary>
+<div markdown="1">
+
+- PlayingRecord.cs
+
+```code
+ public class PlayingRecord
+    {
+        public long MONSTER_KILL     { get; set; }
+      ...
+        public long GetMissionValue(MissionType _MissionType)
+        {
+            var t = this.GetType();
+          ...
+            return (long)o;
+        }
+        public long SetMissionValue(MissionType _MissionType, int _IncValue)
+        {
+           
+            return curval;
+        }
+
+      ...
+    }
+```
+
+- Data_Mission.cs
+
+```code
+...
+public class Data_Mission
+{
+         public void IncMissionValue(MissionType _type, int value)
+        {
+            _playingRecord.IncMissionValue(_type, value);
+            missionUpdater.missiontype = _type;
+            if (CurrentGuideMission.baseInfo.m_type==_type)
+            {
+                CurrentGuideMission.curCount += value;
+            }
+            DailyMission _dmission = dailyMission.Find(o => o.baseInfo.m_type == _type);
+            if(_dmission != null)
+                _dmission.curCount += value;
+            RepeatMission _rmission = repeatMissions.Find(o => o.baseInfo.m_type == _type);
+            if (_rmission != null)
+                _rmission.curCount += value;
+
+           ...
+        }
+}
+```
+
+</div>
+</details>
 
 ## 튜토리얼시스템
 
