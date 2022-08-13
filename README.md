@@ -71,10 +71,10 @@
 <div markdown="1">
 
 ```code
-     public class GlobalCurrency 
+   public class GlobalCurrency 
     {
         CurrencyChange currencyMsg;
-        public List<Currency> currencylist = new List<Currency>();
+        public Dictionary<CurrencyType, Currency> currencylist = new Dictionary<CurrencyType, Currency>();
 
         public void Init()
         {
@@ -82,11 +82,15 @@
         }
         public Currency GetCurrency(CurrencyType _CurrenyType)
         {
-            Currency _currency = currencylist.Find(curruncy => curruncy.currencyType == _CurrenyType);
-            if (_currency == null)
+            Currency _currency = null;
+            if (currencylist.ContainsKey(_CurrenyType))
             {
-                _currency = new Currency() { currencyType = _CurrenyType, value = 0};
-                currencylist.Add(_currency);
+                _currency=currencylist[_CurrenyType];
+            }
+            else
+            {
+                _currency = new Currency() { currencyType = _CurrenyType, value = 0 };
+                currencylist.Add(_CurrenyType,_currency);
             }
 
             return _currency;
@@ -98,7 +102,7 @@
          
             if (null == updateCurreny)
             {
-                currencylist.Add(new Currency() { currencyType = _CurrenyType, value = _value});
+                currencylist.Add(_CurrenyType ,new Currency() { currencyType = _CurrenyType, value = _value});
             }
             else
             {
