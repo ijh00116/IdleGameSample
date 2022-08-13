@@ -69,6 +69,7 @@
     재화관리 내용 보기
 </summary>
 <div markdown="1">
+
 ```code
      public class GlobalCurrency 
     {
@@ -110,6 +111,7 @@
         }
     }
 ```
+
 </div>
 </details>
 
