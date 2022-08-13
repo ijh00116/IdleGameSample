@@ -44,31 +44,35 @@
         public int reward_count;
     }
 ...
- T ReadData<T>(string fileName,BundleType bundleType=BundleType.None)
+  T ReadData<T>(string fileName)
+    {
+        var path = new System.Text.StringBuilder();
+        path.Append(Table_PATH);
+        path.Append(fileName);
+
+        TextAsset jsonString = Resources.Load<TextAsset>(path.ToString());
+
+        if (jsonString != null)
         {
-            bundleType = BundleType.None;
-
-            var path = new System.Text.StringBuilder();
-            path.Append(bundleType != BundleType.None ? "" : "Tables/");
-            path.Append(fileName);
-            if (bundleType != BundleType.None)
-            {
-                 path.Append(".json");
-            }
-
-            TextAsset jsonString = Resources.Load<TextAsset>(path.ToString());
-
-            if (jsonString != null)
-            {
-                return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonString.text);
-            }
-            return default;
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(jsonString.text);
         }
+        return default;
+    }
 ```
 </div>
 </details>
 
 ## 재화관리
+
+<span style="color:#008000">재화관리 내용 보기</span>
+<details>
+<summary>
+    <span style="color:#008000">재화관리 내용 보기</span>
+</summary>
+<div markdown="1">
+
+</div>
+</details>
 
 ## 미션관리
 
