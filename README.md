@@ -63,17 +63,53 @@
 </details>
 
 ## 재화관리
-
-<span style="color:red">
-빨강
-</span>
-<span style="color:#008000">재화관리 내용 보기</span>
+- 옵저버 패턴을 사용해 재화가 변화될때 이벤트가 등록된 곳에 재화의 변화를 전달한다.
 <details>
 <summary>
-    <span style="color:#008000">재화관리 내용 보기</span>
+    재화관리 내용 보기
 </summary>
 <div markdown="1">
+```code
+     public class GlobalCurrency 
+    {
+        CurrencyChange currencyMsg;
+        public List<Currency> currencylist = new List<Currency>();
 
+        public void Init()
+        {
+            currencyMsg = new CurrencyChange();
+        }
+        public Currency GetCurrency(CurrencyType _CurrenyType)
+        {
+            Currency _currency = currencylist.Find(curruncy => curruncy.currencyType == _CurrenyType);
+            if (_currency == null)
+            {
+                _currency = new Currency() { currencyType = _CurrenyType, value = 0};
+                currencylist.Add(_currency);
+            }
+
+            return _currency;
+        }
+        
+        public void UpdateCurrency(CurrencyType _CurrenyType, int _value)
+        {
+            var updateCurreny = GetCurrency(_CurrenyType);
+         
+            if (null == updateCurreny)
+            {
+                currencylist.Add(new Currency() { currencyType = _CurrenyType, value = _value});
+            }
+            else
+            {
+                updateCurreny.value = _value;
+            }
+
+            currencyMsg.Set(_CurrenyType, _value);
+
+            Message.Send<CurrencyChange>(currencyMsg);
+        }
+    }
+```
 </div>
 </details>
 
