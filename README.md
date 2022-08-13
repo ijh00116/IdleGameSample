@@ -17,11 +17,11 @@
 - 각종 데이터 관리에 필요한 테이블을 json으로 관리하기에 json으로 게임에 필요한 데이터를 게임 시작시 세팅하여 사용합니다.
 <details>
 <summary>
-    <span style="color:#008000">옵저버패턴 코드 내용 보기</span>
+    <span style="color:#008000">JsonParsing 코드,테이블관리 내용 보기</span>
 </summary>
     <div markdown="1">
      
-json에 사용되는 엑셀 예시(미션)
+- json에 사용되는 엑셀 예시(미션)
 
 | idx | name | mission_type | mission_value | reward_type | reward_count |
 | --- | ---- | ------------ | ------------- | ----------- | ------------ |
@@ -30,7 +30,20 @@ json에 사용되는 엑셀 예시(미션)
 |50003|	m_daily_name_003	|GACHA_COUNT	|5	|DIAMOND	|20|
 |50004|	m_daily_name_004	|MONSTER_KILL	|2|	DIAMOND	|20|
 
+- JsonParsing 코드
+
 ```code
+  public class DailyMissionDesc
+    {
+        public int idx;
+        public string name;
+        public MissionType mission_type;
+
+        public int mission_value;
+        public RewardType reward_type;
+        public int reward_count;
+    }
+...
  T ReadData<T>(string fileName,BundleType bundleType=BundleType.None)
         {
             bundleType = BundleType.None;
