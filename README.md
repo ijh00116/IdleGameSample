@@ -36,6 +36,7 @@
 - JsonParsing 코드
 
 ```code
+//json 파싱할 정보
   public class DailyMissionDesc
     {
         public int idx;
@@ -47,6 +48,7 @@
         public int reward_count;
     }
 ...
+//json 파일 Deserialize 전용 함수
   T ReadData<T>(string fileName)
     {
         var path = new System.Text.StringBuilder();
@@ -82,6 +84,7 @@
 <div markdown="1">
 
 ```code
+//재화를 여기서 관리하며 나중에 저장시 직렬화하여 이 안의 정보들을 저장한다.
    public class GlobalCurrency 
     {
         CurrencyChange currencyMsg;
@@ -106,7 +109,7 @@
 
             return _currency;
         }
-        
+        //재화 얻거나 잃을시 여기서 
         public void UpdateCurrency(CurrencyType _CurrenyType, int _value)
         {
             var updateCurreny = GetCurrency(_CurrenyType);
@@ -148,6 +151,7 @@
 - PlayingRecord.cs
 
 ```code
+//플레이어의 이벤트를 여기서 관리(몬스터킬,미션클리어,던전입장,가차횟수 등)
  public class PlayingRecord
     {
         public long MONSTER_KILL     { get; set; }
@@ -188,9 +192,11 @@
 
 ```code
 ...
+//Playingrecord의 정보를 토대로 미션 업데이트 하여 각 미션의 클리어,보상을 관리하고 저장한다.
 public class Data_Mission
 {
     ...
+    //미션 이벤트시 수치 증가
          public void IncMissionValue(MissionType _type, int value)
         {
             _playingRecord.IncMissionValue(_type, value);
@@ -208,6 +214,7 @@ public class Data_Mission
 
            ...
         }
+        //변경된 미션수치에 따른 보상 조건 처리
         public void SetMissionValue(MissionType _type, int value,bool sendmsg)
         {
             _playingRecord.SetMissionValue(_type, value);
