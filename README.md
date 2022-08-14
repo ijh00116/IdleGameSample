@@ -34,7 +34,7 @@
 |50004|	m_daily_name_004	|MONSTER_KILL	|2|	DIAMOND	|20|
 
 - JsonParsing 코드
-
+- [InGameDataTableManager.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/Manager/InGameDataTableManager.cs)
 ```code
 //json 파싱할 정보
   public class DailyMissionDesc
@@ -83,6 +83,7 @@
 </summary>
 <div markdown="1">
 
+- [GlobalCurrency.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/Currency/GlobalCurrency.cs)
 ```code
 //재화를 여기서 관리하며 나중에 저장시 직렬화하여 이 안의 정보들을 저장한다.
    public class GlobalCurrency 
@@ -154,7 +155,7 @@
 </summary>
 <div markdown="1">
 
-- PlayingRecord.cs
+- [PlayingRecord.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/InGame/Mission/MissionContext.cs)
 
 ```code
 //플레이어의 이벤트를 여기서 관리(몬스터킬,미션클리어,던전입장,가차횟수 등)
@@ -194,7 +195,7 @@
     }
 ```
 
-- Data_Mission.cs
+- [Data_Mission.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/InGame/Mission/Data_Mission.cs)
 
 ```code
 ...
@@ -266,7 +267,7 @@ public class Data_Mission
     튜토리얼 로직 내용 보기
 </summary>
 <div markdown="1">
-
+- [TutorialManager.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/InGame/Tutorial/TutorialManager.cs)
 ```code
  public class TutorialManager : MonoSingleton<TutorialManager>
     {
@@ -393,7 +394,8 @@ public class Data_Mission
 - `InventoryObject` : `InventorySlot`을 `List`로 보유하고 있으며 장착된 아이템을 멤버변수로 가지고 있습니다.
 - `ItemUIDisplay`: `InventorySlot`의 정보를 보여주는 UI입니다. `InventorySlot`의 정보가 바뀌면 등록된 콜백함수가 호출됩니다.
 <br><br>
-- InventoryObject
+
+- [InventoryObject.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/SystemContents/Item/InventoryObject.cs)
 ```InventoryObject
 {
 ...
