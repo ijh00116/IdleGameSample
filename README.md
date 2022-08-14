@@ -244,7 +244,7 @@ public class Data_Mission
 
 ## 튜토리얼시스템
 - 튜토리얼 로직은 유저 게임 실행시 어려운 부분에 대한 가이드라인을 관리합니다.
-- 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 큐로 저장하며 유저의 진행도를 관리합니다.
+- 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 `큐`로 저장하며 유저의 진행도를 관리합니다.
 
 <details>
 <summary>
@@ -253,11 +253,107 @@ public class Data_Mission
 <div markdown="1">
 
 ```code
-```
+ public class TutorialManager : MonoSingleton<TutorialManager>
+    {
+        private Queue<TutorialTouch> _currentTutorials = null;
+        private UnityAction _callbackTutorialFinish;
+        private Coroutine _coTutorial;
+        public bool IsPlayingTutorial => _currentTutorials != null && _currentTutorials.Count > 0;
 
-```code
-...
+        ...
+        //튜토리얼 이벤트 시작(게임 진행중 튜토리얼 시점마다 함수 호출)
+        public void StartTutorial(eTutorialDivision division,UnityAction callbackFinish)
+        {
+            if (IsPlayingTutorial)
+            {
+#if UNITY_EDITOR
+                Debug.LogError($"<color=green>튜토리얼 진행 중이라 {division}가 취소 됨!!</color>");
+#endif
+                return;
+            }
+            var idx = GetTutorialIdx(division);
+            if (idx == -1)
+            {
+                idx = InGameManager.Instance.GetPlayerData.tutorialInfo.TutorialList.Count;
+                InGameManager.Instance.GetPlayerData.tutorialInfo.TutorialList.Add(new Tutorial { division = division, step = 1 });
+            }
+            //튜토리얼 진행 정보 가지고 튜토리얼터치 정보 가져옴
+            _currentTutorials = GetTutorialTouch(division, InGameManager.Instance.GetPlayerData.tutorialInfo.TutorialList[idx].step);
 
+            _callbackTutorialFinish = () => {
+                callbackFinish?.Invoke();
+            };
+
+            if (_currentTutorials.Count > 1)
+            {
+                //튜토리얼 띄워줘야함 다른 UI예외처리
+            }
+            _coTutorial = StartCoroutine(IeStartTutorialStep());
+        }
+
+        private IEnumerator IeStartTutorialStep()
+        {
+            var nowTuto = _currentTutorials.Dequeue();
+            //튜토리얼의 특정 UI위치나 이미지에 대한 처리
+            switch (nowTuto.target_ui)
+            {
+                case eTargetUI.NONE:
+                    break;
+                case eTargetUI.SHOW_CURTAIN:
+                    break;
+                ...
+                default:
+                    break;
+            }
+
+            bool tutorialTouched = false;
+            
+            if(nowTuto.name_id.Equals("0"))
+            {
+                if (_currentTutorials.Count == 0)
+                {
+                    for (int i = 0; i < InGameManager.Instance.GetPlayerData.tutorialInfo.TutorialList.Count; i++)
+                    {
+                        if (InGameManager.Instance.GetPlayerData.tutorialInfo.TutorialList[i].division == nowTuto.tutorial_division)
+                        {
+                            if (InGameManager.Instance.GetPlayerData.tutorialInfo.TutorialList[i].step == nowTuto.save_step)
+                                break;
+
+                            InGameManager.Instance.GetPlayerData.tutorialInfo.TutorialList[i].step = nowTuto.save_step;
+#if UNITY_EDITOR
+                            Debug.Log($"<color=green>튜토리얼 진행중</color> \n division : {nowTuto.tutorial_division} save_step : {nowTuto.save_step}");
+#endif
+                            break;
+                        }
+                    }
+                    ClearTutorial();
+                }
+                else
+                {
+                    NextTutorialStep();
+                }
+            }
+            else
+            {
+                //튜토 버튼에 튜토리얼 터치 정보 보내주기
+                Message.Send<UI.Event.TutorialUIpopup>(new UI.Event.TutorialUIpopup(nowTuto, () => tutorialTouched = true));
+            }
+            //튜토리얼 읽음 처리
+            yield return new WaitUntil(() => tutorialTouched==true);
+
+     ...
+            //튜토리얼 UI터치가 눌려서 다음처리해줌
+            if (_currentTutorials.Count==0)
+            {
+                ClearTutorial();
+            }else
+            {
+                NextTutorialStep();
+            }
+        }
+
+       ...
+    }
 ```
 
 </div>
