@@ -248,17 +248,14 @@ public class Data_Mission
 
 
 ```mermaid
-  sequenceDiagram
-    Alice->>Bob: Hello Bob, how are you?
-    alt is sick
-    Bob->>Alice: Not so good :(
-    else is well
-    Bob->>Alice: Feeling fresh like a daisy
+    sequenceDiagram
+    Tutorial테이블->>TableData관리: json데이터 파싱하여 소유
+    json 파싱
+    Tutorial테이블->>TableData관리: 파싱하여 데이터 보유
     end
-    opt Extra response
-    Bob->>Alice: Thanks for asking
-    end
-
+    TableData관리->>TutorialManager: 데이터 전달
+    TutorialManager->>user: 튜토리얼 제공
+    user->>TutorialManager: 튜토리얼 터치 후 
 ```
 
 <details>
