@@ -254,8 +254,10 @@ public class Data_Mission
     Tutorial테이블->>TableData관리: 파싱하여 데이터 보유
     end
     TableData관리->>TutorialManager: 데이터 전달
+    end
     TutorialManager->>user: 튜토리얼 제공
     user->>TutorialManager: 튜토리얼 터치 후 
+    end
 ```
 
 <details>
