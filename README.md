@@ -1,6 +1,6 @@
-# KnightRush
+# 키우기게임 포트폴리오
 - Valkirie 키우기 포트폴리오 입니다(`해당 프로젝트는 스크립트만 존재하여 플레이 진행이 되지 않습니다.`)
-- 방치형게임의 핵심 로직내용과 플레이팹(Playfab)연동 코드가 첨부되어 있습니다.
+- 방치형게임의 핵심 로직내용이 포함되어 있습니다.
 - 현재 출시되어 있으며 출시 직전까지 개발을 맡아 하였습니다. 개발인원 4명(아트디자이너1명,기획자1명,애니메이터1명,개발자1명(본인))
 - [발키리 소녀 키우기](https://play.google.com/store/apps/details?id=com.HighSpirit.KnightRush):해당 링크에서 게임을 다운받아 즐겨보실수 있습니다.
 - 각 목록에서 `▶ 버튼`을 눌러 코드,세부내용을 확인할수 있습니다
@@ -128,7 +128,7 @@
 ```
 
 <figure>
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/currency_0.gif" title="재화관리sample" width="500"><br>
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/currency.gif" title="재화관리sample" width="500"><br>
 <figcaption>재화관리 로직 흐름</figcaption><br>
 </figure>
 
@@ -228,7 +228,7 @@ public class Data_Mission
 }
 ```
 <figure>
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/mission_0.gif" title="관리sample" width="500"><br>
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/mission.gif" title="관리sample" width="500"><br>
 <figcaption>미션관리 로직 흐름</figcaption><br>
 </figure>
 
@@ -236,5 +236,24 @@ public class Data_Mission
 </details>
 
 ## 튜토리얼시스템
+- 튜토리얼 로직은 유저 게임 실행시 어려운 부분에 대한 가이드라인을 관리합니다.
+- 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 큐로 저장하며 유저의 진행도를 관리합니다.
+
+<details>
+<summary>
+    튜토리얼 로직 내용 보기
+</summary>
+<div markdown="1">
+
+```code
+```
+
+```code
+...
+
+```
+
+</div>
+</details>
 
 ## 인벤토리관리
