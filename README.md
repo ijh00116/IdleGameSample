@@ -62,8 +62,9 @@
         return default;
     }
 ```
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_0.PNG" width="1000">
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_1.PNG" width="1000">
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_1.PNG" title="json데이터 관리 위한 액셀" width="500">
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_0.PNG" title="json파싱한 아이템 데이터" width="500">
+
 
 </div>
 </details>
