@@ -127,6 +127,11 @@
     }
 ```
 
+<figure>
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/currency.gif" title="재화관리sample" width="1000"><br>
+<figcaption>재화관리 로직 흐름</figcaption><br>
+</figure>
+
 </div>
 </details>
 
