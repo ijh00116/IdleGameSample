@@ -253,7 +253,6 @@ public class Data_Mission
 - 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 `큐`로 저장하며 유저의 진행도를 관리합니다.
 
 ```mermaid
-%% Example of sequence diagram
   sequenceDiagram
     Tutorialtable->>TableDatamanager: json데이터 파싱하여 소유
     TableDatamanager->>TutorialManager: 튜토리얼매니저에 테이블 데이터 전달
@@ -266,7 +265,9 @@ public class Data_Mission
     튜토리얼 로직 내용 보기
 </summary>
 <div markdown="1">
+
 - [TutorialManager.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/InGame/Tutorial/TutorialManager.cs)
+
 ```code
  public class TutorialManager : MonoSingleton<TutorialManager>
     {
