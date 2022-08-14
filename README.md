@@ -33,7 +33,6 @@
 |50003|	m_daily_name_003	|GACHA_COUNT	|5	|DIAMOND	|20|
 |50004|	m_daily_name_004	|MONSTER_KILL	|2|	DIAMOND	|20|
 
-- JsonParsing 코드
 - [InGameDataTableManager.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/Manager/InGameDataTableManager.cs)
 ```code
 //json 파싱할 정보
