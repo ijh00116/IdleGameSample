@@ -246,7 +246,7 @@ public class Data_Mission
 - 튜토리얼 로직은 유저 게임 실행시 어려운 부분에 대한 가이드라인을 관리합니다.
 - 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 `큐`로 저장하며 유저의 진행도를 관리합니다.
 
-```flow
+
 st=>start: Start
 op=>operation: Your Operation
 cond=>condition: Yes or No?
@@ -255,13 +255,27 @@ e=>end
 st->op->cond
 cond(yes)->e
 cond(no)->op
-```
 
-```sequence
+
+
 Alice->Bob: Hello Bob, how are you?
 Note right of Bob: Bob thinks
 Bob-->Alice: I am good thanks!
-```
+
+
+```mermaid
+%% Example of sequence diagram
+  sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    alt is sick
+    Bob->>Alice: Not so good :(
+    else is well
+    Bob->>Alice: Feeling fresh like a daisy
+    end
+    opt Extra response
+    Bob->>Alice: Thanks for asking
+    end
+​```
 
 <details>
 <summary>
