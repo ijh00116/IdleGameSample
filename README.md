@@ -246,14 +246,16 @@ public class Data_Mission
 - 튜토리얼 로직은 유저 게임 실행시 어려운 부분에 대한 가이드라인을 관리합니다.
 - 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 `큐`로 저장하며 유저의 진행도를 관리합니다.
 
-flowchart LR
-    A[구매] --> B;
-    B[유저, 파라미터, \n 어뷰징 검증] --> C;
-    C{client가 안드로이드} -->|Yes| E;
-    C -->|No| G;
-    E[안드로이드 Proxy 처리] --> G;
-    G[DB 저장] --> I;
-    I[응답 반환];
+```flow
+st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
+
+st->op->cond
+cond(yes)->e
+cond(no)->op
+```
 
 <details>
 <summary>
