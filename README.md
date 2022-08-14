@@ -19,7 +19,7 @@
 - 각종 데이터 관리에 필요한 테이블을 json으로 관리하기에 json으로 게임에 필요한 데이터를 게임 시작시 세팅하여 사용합니다.
 <details>
 <summary>
-    <span style="color:#008000">JsonParsing 코드,테이블관리 내용 보기</span>
+    <span style="color:#008000"> `JsonParsing 코드,테이블관리 내용 보기` </span>
 </summary>
     <div markdown="1">
      
@@ -68,7 +68,7 @@
 - `옵저버 패턴`을 사용해 재화가 변화될때 이벤트가 등록된 곳에 재화의 변화를 전달한다.
 <details>
 <summary>
-    재화관리 내용 보기
+    `재화관리 내용 보기`
 </summary>
 <div markdown="1">
 
@@ -127,7 +127,7 @@
 
 <details>
 <summary>
-    미션관리 내용 보기
+    `미션관리 내용 보기`
 </summary>
 <div markdown="1">
 
