@@ -250,9 +250,6 @@ public class Data_Mission
 ```mermaid
     sequenceDiagram
     Tutorialtable->>TableDatamanager: json데이터 파싱하여 소유
-    json 파싱
-    end
-    TableDatamanager->>Tutorialtable: 파싱하여 데이터 보유
     end
     TableDatamanager->>TutorialManager: 데이터 전달
     end
