@@ -251,7 +251,8 @@ public class Data_Mission
     sequenceDiagram
     Tutorial테이블->>TableData관리: json데이터 파싱하여 소유
     json 파싱
-    Tutorial테이블->>TableData관리: 파싱하여 데이터 보유
+    end
+    TableData관리->>Tutorial테이블: 파싱하여 데이터 보유
     end
     TableData관리->>TutorialManager: 데이터 전달
     end
