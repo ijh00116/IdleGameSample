@@ -257,6 +257,12 @@ cond(yes)->e
 cond(no)->op
 ```
 
+```sequence
+Alice->Bob: Hello Bob, how are you?
+Note right of Bob: Bob thinks
+Bob-->Alice: I am good thanks!
+```
+
 <details>
 <summary>
     튜토리얼 로직 내용 보기
