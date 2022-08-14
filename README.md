@@ -247,22 +247,6 @@ public class Data_Mission
 - 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 `큐`로 저장하며 유저의 진행도를 관리합니다.
 
 
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-
-
-
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-
-
 ```mermaid
 %% Example of sequence diagram
   sequenceDiagram
@@ -275,7 +259,7 @@ Bob-->Alice: I am good thanks!
     opt Extra response
     Bob->>Alice: Thanks for asking
     end
-​```
+```
 
 <details>
 <summary>
