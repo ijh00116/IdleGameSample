@@ -362,7 +362,7 @@ public class Data_Mission
 ## 인벤토리관리
 - 인벤토리의 총 로직을 소개합니다.
 - 테이블을 통해 아이템(무기,코스튬,펫 등)들을 관리하며 아이템의 테이블정보, 갯수 레벨등의 유저 커스텀 저장정보 들을 관리합니다
-- 인벤토리의 유저 커스텀 저장정보는 Playfab(https://playfab.com)으로 관리합니다    
+- 인벤토리의 유저 커스텀 저장정보는 [Playfab](https://playfab.com)으로 관리합니다    
 - 이 프로젝트는 Playfab을 통한 Database 세이브 로드에 관한 로직이 담겨 있지 않습니다
 -Playfab을 통한 세이브로드 로직이 궁금하시다면 [플레이팹관리](https://github.com/ijh00116/BT_Project#%ED%94%8C%EB%A0%88%EC%9D%B4%ED%8C%B9%EA%B4%80%EB%A6%AC)에서 확인해보시기 바랍니다.
 
