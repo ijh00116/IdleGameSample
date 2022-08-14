@@ -128,7 +128,7 @@
 ```
 
 <figure>
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/currency_0.gif" title="재화관리sample" width="500"><br>
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/currency.gif" title="재화관리sample" width="500"><br>
 <figcaption>재화관리 로직 흐름</figcaption><br>
 </figure>
 
@@ -228,7 +228,7 @@ public class Data_Mission
 }
 ```
 <figure>
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/mission_0.gif" title="관리sample" width="500"><br>
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/mission.gif" title="관리sample" width="500"><br>
 <figcaption>미션관리 로직 흐름</figcaption><br>
 </figure>
 
