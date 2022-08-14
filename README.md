@@ -249,7 +249,10 @@ public class Data_Mission
 ```mermaid
 %% Example of sequence diagram
   sequenceDiagram
-    Alice->>Bob: Hello Bob, how are you?
+    Tutorialtable->>TableDatamanager: json데이터 파싱하여 소유
+    TableDatamanager->>TutorialManager: 튜토리얼매니저에 테이블 데이터 전달
+    TutorialManager->>user: 튜토리얼 제공
+    user->>TutorialManager: 튜토리얼 터치 후 세이브정보 제공
 ```
     
 <details>
