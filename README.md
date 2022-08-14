@@ -398,6 +398,7 @@ public class Data_Mission
 
 - [InventoryObject.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/SystemContents/Item/InventoryObject.cs)
 ```InventoryObject
+public class InventoryObject
 {
 ...
         public List<InventorySlot> GetSlots => Container.Slots;
@@ -411,6 +412,119 @@ public class Data_Mission
         }
     ...
 }
+```
+
+- [ItemData.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/SystemContents/Item/ItemData.cs)
+```ItemData
+public class ItemData
+{
+...
+        public ItemType itemtype = ItemType.weapon;
+        public int MaxLevel;
+        //분해
+        public int Recycle_StoneCount;
+
+        //능력치
+        public Dictionary<AbilitiesType,Dictionary<int, BigInteger>> B_abilityList = new Dictionary<AbilitiesType, Dictionary<int, BigInteger>>();
+        public Dictionary<AbilitiesType, Dictionary<int, BigInteger>> A_abilityList = new Dictionary<AbilitiesType, Dictionary<int, BigInteger>>();
+        public Dictionary<string, string> A_AbilityGainTypelist = new Dictionary<string, string>();
+        public Dictionary<string, string> B_AbilityGainTypelist = new Dictionary<string, string>();
+        //아이템테이블 데이터
+        public ItemInformation itemInfo;
+        public Item myItem;
+    ...
+}
+```
+
+- [Item.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/SystemContents/Item/ItemObject.cs)
+```ItemData
+    public class Item
+    {
+        [Header("[유저 세이빙 데이터- 아이템 강화 레벨, 갯수 등등]")]
+        public int Level = 1;
+        public int amount = 0;
+        public bool Equiped=false;
+        public bool Unlocked = false;
+        public int idx;
+        public int AwakeLv;
+    }
+```
+
+- [Inventoryslot](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/SystemContents/Item/InventoryObject.cs)
+```InventorySlot
+    [System.Serializable]
+    public class InventorySlot
+    {
+        [System.NonSerialized] public InventoryObject parent;
+        [System.NonSerialized] public Action onAfterUpdated;
+        [System.NonSerialized] public Action onBeforeUpdated;
+        [System.NonSerialized] public ItemUIDisplay display;
+
+        public Item item;
+        [System.NonSerialized] public ItemData itemData;
+        public void AddAmount(int value) 
+        {
+            if (item.Unlocked == false)
+                item.Unlocked = true;
+            item.amount += value;
+            UpdateSlot();
+        }
+       ...
+     
+        public void UpdateSlot()
+        {
+           ...
+            onBeforeUpdated?.Invoke();
+            itemData.UpdateData();
+            onAfterUpdated?.Invoke();
+        }
+    }
+```
+
+- [ItemUIDisplay.cs](https://github.com/ijh00116/IdleGameSample/blob/main/Assets/MainProject/Scripts/SystemContents/Item/ItemUIDisplay.cs)
+```ItemUIDisplay
+    public class ItemUIDisplay : MonoBehaviour
+    {
+        ...
+        //item정보 변경시 업데이트
+        public void SlotUIUpdate()
+        {
+          ...
+            ItemAmount.value = slot.item.amount / 10.0f;
+            AmountText.text = string.Format("{0}/5", slot.item.amount);
+
+            switch(slot.itemData.itemInfo.grade)
+            {
+                case "d":
+                    _GradeText = string.Format("저급({0}등급)", slot.item.AwakeLv);
+                    break;
+                case "b":
+                    _GradeText = string.Format("일반({0}등급)", slot.item.AwakeLv);
+                    break;
+                case "c":
+                    _GradeText = string.Format("고급({0}등급)", slot.item.AwakeLv);
+                    break;
+                case "a":
+                    _GradeText = string.Format("영웅({0}등급)", slot.item.AwakeLv);
+                    break;
+                case "s":
+                    _GradeText = string.Format("전설({0}등급)", slot.item.AwakeLv);
+                    break;
+                case "ss":
+                    _GradeText = string.Format("신화({0}등급)", slot.item.AwakeLv);
+                    break;
+            }
+            GradeText.text = _GradeText;
+
+            LevelText.text = string.Format("Lv.{0}", slot.item.Level); 
+
+            for(int i=0; i< StarImages.Length; i++)
+            {
+                StarImages[i].gameObject.SetActive(i < slot.item.AwakeLv);
+            }
+        ...
+        }
+    }
 ```
 
 </div>
