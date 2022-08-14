@@ -62,8 +62,8 @@
         return default;
     }
 ```
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_0.PNG" width="100">
-<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_1.PNG" width="100">
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_0.PNG" width="1000">
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/jsonParsing_1.PNG" width="1000">
 
 </div>
 </details>
