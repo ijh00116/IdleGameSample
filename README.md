@@ -383,10 +383,13 @@ public class Data_Mission
 
 <details>
 <summary>
-    튜토리얼 로직 내용 보기
+    인벤토리 로직 내용보기
 </summary>
 <div markdown="1">
-
+- `InventorySlot` : 아이템의 정보를 보유하고 있습니다.(`ItemData`,`Item`를 멤버변수로 가지고 있습니다)
+- `ItemData` : 실제 인게임에서 쓰이도록 테이블데이터와 유저의 커스텀데이터(아이템 레벨 등)을 토대로 정보를 가지고 있습니다.
+- `Item` : 아이템에 대한 유저의 커스텀 데이터(아이템 레벨,보유량,강화수치 등)를 가지고 있습니다.
+- `InventoryObject` : `InventorySlot`을 `List`로 보유하고 있으며 장착된 아이템을 멤버변수로 가지고 있습니다.
 ```code
 
 ```
