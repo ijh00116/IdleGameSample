@@ -246,14 +246,15 @@ public class Data_Mission
 - 튜토리얼 로직은 유저 게임 실행시 어려운 부분에 대한 가이드라인을 관리합니다.
 - 튜토리얼 정보는 테이블로 관리하며 게임 실행시 튜토리얼 진행에 대한 데이터를 `큐`로 저장하며 유저의 진행도를 관리합니다.
 
-
 ```mermaid
-    sequenceDiagram
-    Tutorialtable->>TableDatamanager: json데이터 파싱하여 소유
+%% Example of sequence diagram
+  sequenceDiagram
+    Alice->>Bob: Hello Bob, how are you?
+    opt Extra response
+    Bob->>Alice: Thanks for asking
     end
-   
 ```
-
+    
 <details>
 <summary>
     튜토리얼 로직 내용 보기
