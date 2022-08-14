@@ -227,6 +227,10 @@ public class Data_Mission
     ...
 }
 ```
+<figure>
+<img src="https://github.com/ijh00116/KnightRush/blob/main/Mdresources/mission_0.gif" title="관리sample" width="500"><br>
+<figcaption>미션관리 로직 흐름</figcaption><br>
+</figure>
 
 </div>
 </details>
