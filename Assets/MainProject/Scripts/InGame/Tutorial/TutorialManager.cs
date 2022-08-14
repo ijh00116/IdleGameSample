@@ -238,29 +238,6 @@ namespace BlackTree
             List<TutorialTouch> tutotouchlist = InGameDataTableManager.TutorialTableList.tutorial_touch;
             return new Queue<TutorialTouch>(tutotouchlist.FindAll(x => x.tutorial_division.Equals(division) && x.step >= step).OrderBy((a) => a.step).ToList());
         }
-
-        //private IEnumerator IeTutorialGoCMCharSelAngela()
-        //{
-        //    if (!Main.Instance.UI.IsShowUI(UIType.CharacterManagement))
-        //    {
-        //        yield return new WaitForEndOfFrame();
-        //        Main.Instance.UI.GetUI<UIMain>(UIType.MainUI).charButton.onClick.Invoke();
-        //        yield return new WaitUntil(() => Main.Instance.UI.IsShowUI(UIType.CharacterManagement));
-        //        var manager = Main.Instance.UI.GetUI<UICharacterManagement>(UIType.CharacterManagement);
-        //        yield return new WaitUntil(() => manager.gameObject.activeSelf);
-        //        var charList = manager.characterList;
-        //        charList.list.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        //        yield return new WaitForEndOfFrame();
-        //        Main.Instance.UI.GetUI<UICharacterManagement>(UIType.CharacterManagement).characterList.list.Get<UICharacterListItem>(1).btn.onClick.Invoke();
-        //        _isTutorialSkipStep = true;
-        //        yield return new WaitForEndOfFrame();
-        //    }
-        //    else
-        //    {
-        //        _isTutorialSkipStep = false;
-        //        yield return new WaitForEndOfFrame();
-        //    }
-        //}
     }
 
 }
