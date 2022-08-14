@@ -251,11 +251,7 @@ public class Data_Mission
     sequenceDiagram
     Tutorialtable->>TableDatamanager: json데이터 파싱하여 소유
     end
-    TableDatamanager->>TutorialManager: 데이터 전달
-    end
-    TutorialManager->>user: 튜토리얼 제공
-    user->>TutorialManager: 튜토리얼 터치 후 
-    end
+   
 ```
 
 <details>
