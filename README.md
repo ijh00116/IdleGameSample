@@ -392,8 +392,22 @@ public class Data_Mission
 - `Item` : 아이템에 대한 유저의 커스텀 데이터(아이템 레벨,보유량,강화수치 등)를 가지고 있습니다.
 - `InventoryObject` : `InventorySlot`을 `List`로 보유하고 있으며 장착된 아이템을 멤버변수로 가지고 있습니다.
 - `ItemUIDisplay`: `InventorySlot`의 정보를 보여주는 UI입니다. `InventorySlot`의 정보가 바뀌면 등록된 콜백함수가 호출됩니다.
-```code
+<br><br>
+- InventoryObject
+```InventoryObject
+{
+...
+        public List<InventorySlot> GetSlots => Container.Slots;
+        public bool AddItem(Item item)
+        {...
+        }
 
+        public bool AddAmount(Item item,int value)
+        {
+            ...
+        }
+    ...
+}
 ```
 
 </div>
