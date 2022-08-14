@@ -19,7 +19,7 @@
 - 각종 데이터 관리에 필요한 테이블을 json으로 관리하기에 json으로 게임에 필요한 데이터를 게임 시작시 세팅하여 사용합니다.
 <details>
 <summary>
-    <span style="color:#008000"> `JsonParsing 코드,테이블관리 내용 보기` </span>
+    <span style="color:#008000"> <JsonParsing 코드,테이블관리 내용 보기> </span>
 </summary>
     <div markdown="1">
      
