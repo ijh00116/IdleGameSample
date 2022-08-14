@@ -250,8 +250,6 @@ public class Data_Mission
 %% Example of sequence diagram
   sequenceDiagram
     Alice->>Bob: Hello Bob, how are you?
-    opt Extra response
-    Bob->>Alice: Thanks for asking
     end
 ```
     
